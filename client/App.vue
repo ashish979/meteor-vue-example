@@ -46,7 +46,9 @@
       $subscribe: {
         'Time': [],
         'Organisation': [],
-        'OrganisationData': [this.organisationIds]
+        'OrganisationData': function() {
+          return [this.organisationIds]
+        }
       },
       // A helper function to get the current time
       currentTime () {
@@ -58,7 +60,7 @@
         return Organisation.find({})
       },
       organisationIds () {
-        var x = Organisation.find({}).fetch().map((organisation) => organisation._id);
+        var x = this.OrganisationCursor.map((organisation) => organisation._id);
         console.log(x);
         return x;
       }
