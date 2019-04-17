@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="!($subReady.Time && $subReady.Organisation)">Loading...</div>
+    <div v-if="!(allSubsReady)">Loading...</div>
     <div v-else>
       <p>Hello {{hello}},
         <br>The time is now: {{currentTime}}
@@ -23,6 +23,29 @@
   import '/imports/collections/Organisation';
 
   export default {
+    computed: {
+      allSubsReady: function() {
+        var i, key, len, subsReady, subscriptionKeys;
+
+        subscriptionKeys = Object.keys(this.$subReady);
+
+        subsReady = subscriptionKeys[0] != null;
+
+        console.log(this.$subReady);
+
+        for (i = 0, len = subscriptionKeys.length; i < len; i++) {
+          key = subscriptionKeys[i];
+          console.log('^^^^', key);
+          console.log(this.$subReady[key]);
+          subsReady = subsReady && this.$subReady[key];
+        }
+
+        console.log(subsReady);
+
+        return subsReady;
+
+      }
+    },
     data() {
       console.log('Sending non-Meteor data to Vue component');
       return {
