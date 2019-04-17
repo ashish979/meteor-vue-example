@@ -23,27 +23,31 @@
   import '/imports/collections/Organisation';
 
   export default {
+    watch: {
+      '$subReady' (value){
+        console.log('in watcher')
+        console.log(value);
+      },
+      '$subReady.OrganisationData' (value) {
+        console.log(value)
+      }
+    },
     computed: {
       allSubsReady: function() {
         var i, key, len, subsReady, subscriptionKeys;
 
         subscriptionKeys = Object.keys(this.$subReady);
-
         subsReady = subscriptionKeys[0] != null;
-
-        console.log(this.$subReady);
-
         for (i = 0, len = subscriptionKeys.length; i < len; i++) {
           key = subscriptionKeys[i];
-          console.log('^^^^', key);
-          console.log(this.$subReady[key]);
           subsReady = subsReady && this.$subReady[key];
         }
-
-        console.log(subsReady);
-
         return subsReady;
-
+      },
+      organisationIds: function() {
+        var x = this.OrganisationCursor && this.OrganisationCursor.map((organisation) => organisation._id);
+        console.log(x);
+        return x;
       }
     },
     data() {
@@ -69,7 +73,7 @@
       $subscribe: {
         'Time': [],
         'Organisation': [],
-        'OrganisationData': function() {
+        'OrganisationData' () {
           return [this.organisationIds]
         }
       },
@@ -81,11 +85,6 @@
       },
       OrganisationCursor () {
         return Organisation.find({})
-      },
-      organisationIds () {
-        var x = this.OrganisationCursor.map((organisation) => organisation._id);
-        console.log(x);
-        return x;
       }
     }
   }
