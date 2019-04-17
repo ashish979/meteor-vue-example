@@ -35,7 +35,6 @@
     computed: {
       allSubsReady: function() {
         var i, key, len, subsReady, subscriptionKeys;
-
         subscriptionKeys = Object.keys(this.$subReady);
         subsReady = subscriptionKeys[0] != null;
         for (i = 0, len = subscriptionKeys.length; i < len; i++) {
@@ -43,11 +42,6 @@
           subsReady = subsReady && this.$subReady[key];
         }
         return subsReady;
-      },
-      organisationIds: function() {
-        var x = this.OrganisationCursor && this.OrganisationCursor.map((organisation) => organisation._id);
-        console.log(x);
-        return x;
       }
     },
     data() {
@@ -69,7 +63,6 @@
     },
     // Meteor reactivity
     meteor: {
-      // Subscriptions - Errors not reported spelling and capitalization.
       $subscribe: {
         'Time': [],
         'Organisation': [],
@@ -77,7 +70,6 @@
           return [this.organisationIds]
         }
       },
-      // A helper function to get the current time
       currentTime () {
         console.log('Calculating currentTime');
         var t = Time.findOne('currentTime') || {};
@@ -85,6 +77,9 @@
       },
       OrganisationCursor () {
         return Organisation.find({})
+      },
+      organisationIds: function() {
+        return this.OrganisationCursor && this.OrganisationCursor.map((organisation) => organisation._id);
       }
     }
   }
