@@ -28,7 +28,8 @@
         console.log('in watcher')
         console.log(value);
       },
-      '$subReady.OrganisationData' (value) {
+      '$subReady.subscription' (value) {
+        console.log('in watcher 2')
         console.log(value)
       }
     },
