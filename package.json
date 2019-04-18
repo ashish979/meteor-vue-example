@@ -2,7 +2,7 @@
   "name": "meteor-vue-example",
   "private": true,
   "scripts": {
-    "start": "meteor run",
+    "start": "meteor run --settings settings.json",
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer"
@@ -12,13 +12,15 @@
     "faker": "^4.1.0",
     "meteor-node-stubs": "^0.4.1",
     "vue": "^2.6.10",
-    "vue-meteor-tracker": "^2.0.0-beta.5"
+    "vue-meteor-tracker": "^2.0.0-beta.5",
+    "vue-router": "^3.0.0"
   },
   "meteor": {
     "mainModule": {
-      "client": "client/main.js",
-      "server": "server/main.js"
+      "client": "client/main.coffee",
+      "server": "server/main.coffee"
     },
     "testModule": "tests/main.js"
-  }
+  },
+  "devDependencies": {}
 }
