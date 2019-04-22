@@ -1,3 +1,3 @@
 <template lang="pug">
-  span About this project
+span About this project
 </template>

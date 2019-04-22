@@ -1,23 +1,24 @@
 <template>
-  <div class="app-menu">
-    <router-link :to="{ name:'home', exact: true }">Home</router-link>
-    <router-link :to="{ name:'organisations' }">Organisations</router-link>
-    <router-link :to="{ name:'about' }">About</router-link>
-  </div>
+<div class="app-menu">
+  <router-link :to="{ name:'home', exact: true }">Home</router-link>
+  <router-link :to="{ name:'organisations' }">Organisations</router-link>
+  <router-link :to="{ name:'about' }">About</router-link>
+</div>
 </template>
+<script>
 
-<style scoped lang="sass">
+</script>
+<style scoped lang="stylus">
+.app-menu
+  margin: 32px 0
+  text-align: center
 
-  .app-menu
-    margin: 32px 0
-    text-align: center
-
-    a
-      display: inline-block
-      padding: 6px
-      margin: 0 6px
-      border-radius: 3px
-      &.v-link-active
-        background: #dadada
-        color: white
+  a
+    display: inline-block
+    padding: 6px
+    margin: 0 6px
+    border-radius: 3px
+    &.v-link-active
+      background: #dadada
+      color: white
 </style>

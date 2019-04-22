@@ -1,8 +1,13 @@
 <template lang="pug">
-  div.app-layout
-    router-view
+div.app-layout
+  app-menu
+  router-view
 </template>
 
-<script>
+<script lang="coffee">
+import AppMenu from './AppMenu.vue'
 
+export default
+  components:
+    'app-menu': AppMenu
 </script>

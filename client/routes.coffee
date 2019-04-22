@@ -1,6 +1,7 @@
 import { RouterFactory } from 'meteor/akryum:vue-router2'
 import Home from '/imports/ui/Home.vue'
 import Organisations from '/imports/ui/Organisations.vue'
+import About from '/imports/ui/About.vue'
 import { nativeScrollBehavior } from 'meteor/akryum:vue-router2'
 
 routerFactory = new RouterFactory
@@ -19,6 +20,11 @@ RouterFactory.configure((factory) ->
       name: 'organisations',
       component: Organisations,
     },
+    {
+      path: '/about',
+      name: 'about',
+      component: About,
+    }
 
   ])
 )
