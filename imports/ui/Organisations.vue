@@ -1,34 +1,27 @@
 <template lang="pug">
 div
-  div(v-if='!(allSubsReady)') Loading...
-  div(v-else='')
+  div(v-if='allSubscriptionsReady')
     p
       span This is organisations list page
       button(@click='insertOrganisation') Insert Organisation
     br
     ul
       li(v-for='o in OrganisationCursor') {{o.name}}  -  {{o._id}}
-
+  div(v-else) Loading...
 </template>
 
-<script lang="coffee">
+<script lang='coffee'>
 
+import { _ } from 'lodash'
 import { Time } from '/imports/collections/Time.coffee'
 import { Organisation } from '/imports/collections/Organisation.coffee'
 
 export default
-
   computed:
-    allSubsReady: ->
-      subscriptionKeys = Object.keys(this.$subReady);
-      subsReady = subscriptionKeys[0] != null;
-      for i in subscriptionKeys.length
-        key = subscriptionKeys[i]
-        subsReady = subsReady && @$subReady[key]
-      subsReady
+    allSubscriptionsReady: ->
+      !_.includes(@$subReady, false)
 
   methods:
-
     insertOrganisation: ->
       Meteor.call('InsertOrganisation');
 

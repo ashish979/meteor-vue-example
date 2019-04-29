@@ -12,3 +12,7 @@ Meteor.startup =>
     render: (h) -> h(AppLayout)
   ).$mount('app');
 
+  router.afterEach((to, from) =>
+    console.log("Rendering " + to.name)
+  )
+

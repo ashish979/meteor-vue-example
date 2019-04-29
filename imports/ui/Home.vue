@@ -1,24 +1,21 @@
 <template lang="pug">
 div
-  div(v-if='!(allSubsReady)') Loading...
-  div(v-else='')
+  div(v-if='allSubscriptionsReady')
     p Hello {{hello}},
     br
     span The time is now: {{currentTime}}
     button(@click='updateTime') Update Time
+  div(v-else) Loading...
 </template>
 
 <script lang="coffee">
+import { _ } from 'lodash'
 import { Time } from '/imports/collections/Time.coffee'
+
 export default
   computed:
-    allSubsReady: ->
-      subscriptionKeys = Object.keys(this.$subReady);
-      subsReady = subscriptionKeys[0] != null;
-      for i in subscriptionKeys.length
-        key = subscriptionKeys[i]
-        subsReady = subsReady && @$subReady[key]
-      subsReady
+    allSubscriptionsReady: ->
+      !_.includes(@$subReady, false)
   data: ->
     hello: 'World'
     settings: Meteor.settings.public
