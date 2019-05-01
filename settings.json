@@ -1,1 +1,5 @@
-{ "public": { "hello": "world" } }
+{
+  "public": {
+    "defaultEmailRecipientAddress": "abhima9yu@gmail.com"
+  }
+}

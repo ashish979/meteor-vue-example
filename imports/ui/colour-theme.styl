@@ -1,0 +1,90 @@
+project-green = #70c914
+project-purple = #884cf6
+
+dark = #a0a0a0
+secondary = project-purple
+main = project-green
+main-light = lightness(main, 70%)
+main-dark = main
+
+correct-green = #00aa00
+
+.application.theme--light
+  background-color lighten(secondary, 95%)
+
+  .card
+    color: inherit
+
+  nav.top-nav
+    .toolbar__content
+      background-color dark
+
+      .toolbar__side-icon
+        color main
+
+    .notification-icon
+      color main
+
+  .navigation-drawer
+    .list
+      a
+        color #909090
+
+        button
+          color #909090
+
+        &.active
+          color secondary
+
+          button
+            color main
+
+  main
+    a
+      color: #039be5
+    h1, h2, h3, h4, h5
+      color secondary
+      i
+        color secondary
+    .questions-answered
+      color #0000FF
+    .questions-correct
+      color #00aa00
+    .main-panel-header
+      background-color secondary
+      color: #fff
+
+    .learner-achievements
+      .learner-achievement
+        color grey
+        background-color lighten(grey, 90%)
+        &.achieved
+          color darken(correct-green, 30%)
+          h3
+            color gold
+            i
+              color gold
+          background-color lighten(correct-green, 90%)
+
+    .answer.correct
+      color darken(correct-green, 30%)
+      background-color lighten(correct-green, 90%)
+
+    .answer.incorrect
+      color darkred
+      background-color lighten(red, 90%)
+
+    .leader-board
+      .leader-board-entry
+        color main-dark
+        i.fa-trophy
+          color main-dark
+        &:first-child
+          i.fa-trophy
+            color gold
+        &:nth-child(2)
+          i.fa-trophy
+            color silver
+        &:nth-child(3)
+          i.fa-trophy
+            color #CD7F32

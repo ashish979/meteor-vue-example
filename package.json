@@ -1,20 +1,29 @@
 {
-  "name": "meteor-vue-example",
+  "name": "testMeteorVueTracker",
   "private": true,
   "scripts": {
     "start": "meteor run --settings settings.json",
-    "test": "meteor test --once --driver-package meteortesting:mocha",
-    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
-    "visualize": "meteor --production --extra-packages bundle-visualizer"
+    "start-with-local-mongo": "MONGO_URL=mongodb://localhost:27017/testMeteorVueTracker meteor run --settings settings.json"
   },
   "dependencies": {
-    "@babel/runtime": "^7.3.4",
-    "faker": "^4.1.0",
+    "@babel/runtime": "~7.4.3",
+    "babel-runtime": "^6.23.0",
+    "bcrypt": "~1.0.3",
+    "buffer": "~5.2.1",
+    "faker": "^3.1.0",
+    "jquery": "~3.2.1",
     "lodash": "~4.17.11",
-    "meteor-node-stubs": "^0.4.1",
-    "vue": "^2.6.10",
-    "vue-meteor-tracker": "^2.0.0-beta.5",
-    "vue-router": "^3.0.0"
+    "moment": "~2.22.2",
+    "simpl-schema": "~1.5.5",
+    "vue": "~2.6.10",
+    "vue-meteor-tracker": "file:../vue-meteor-tracker",
+    "vue-router": "^3.0.0",
+    "vue-scrollto": "~2.13.0",
+    "vuetify": "~1.0.10"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "chromedriver": "~2.36.0",
+    "selenium-webdriver": "^3.6.0",
+    "shelljs": "^0.8.3"
+  }
 }
