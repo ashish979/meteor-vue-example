@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "meteor run --settings settings.json",
-    "start-with-local-mongo": "MONGO_URL=mongodb://localhost:27017/testMeteorVueTracker meteor run --settings settings.json"
+    "start-with-local-mongo": "MONGO_URL=mongodb://localhost:27017/testMeteorVueTracker meteor run --port 3030 --settings settings.json"
   },
   "dependencies": {
     "@babel/runtime": "~7.4.3",
@@ -16,7 +16,7 @@
     "moment": "~2.22.2",
     "simpl-schema": "~1.5.5",
     "vue": "~2.6.10",
-    "vue-meteor-tracker": "file:../vue-meteor-tracker",
+    "vue-meteor-tracker": "~2.0.0-beta.5",
     "vue-router": "^3.0.0",
     "vue-scrollto": "~2.13.0",
     "vuetify": "~1.0.10"
